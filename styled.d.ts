@@ -1,10 +1,12 @@
-import 'styled-components'
+import 'styled-components';
 
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    colors: {
-      primary: string
-      secondary: string
+    export interface DefaultTheme {
+        primary: string;
+        secondary: string;
+        white: string;
+        brightBlue: string;
+        silver: string;
+        darkGray: string;
     }
-  }
 }
