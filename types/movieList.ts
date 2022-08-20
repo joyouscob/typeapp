@@ -8,3 +8,4 @@ export interface movieListType {
     titleImg: string;
     type: string;
 }
+[];

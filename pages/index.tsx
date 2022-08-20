@@ -3,10 +3,16 @@ import {useEffect} from 'react'
 import {useSession} from 'next-auth/react'
 import { useRouter } from 'next/router'
 import HomeLayout from '../components/HomeLayout'
+import { movieListType } from '../types/movieList'
+import { GetServerSideProps } from 'next'
 
-
-export default function Home() {
-      const { data: session, status } = useSession()
+interface Props{
+  movieResults: movieListType[] //coming from the type
+}
+export default function Home({ movieResults }: Props) {
+  
+  console.log(movieResults)
+    const { data: session, status } = useSession()
     const router = useRouter();
     
     useEffect(() => {
@@ -23,8 +29,7 @@ export default function Home() {
 
     if (status === 'loading') return <p>...Loading</p>
     
-  if (!session) {
-        
+
         return (
           <>
             <Head>
@@ -33,9 +38,22 @@ export default function Home() {
               <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <HomeLayout />
+            <HomeLayout movieResults={movieResults} />
       
           </>
         )
+
+  
+}
+export const getServerSideProps: GetServerSideProps = async () => {
+  const movieResults = await fetch("http://localhost:3000/api/movies").then(
+    (res) => res.json()
+  );
+
+  return {
+    props:{
+      movieResults
     }
+  }
+
 }
