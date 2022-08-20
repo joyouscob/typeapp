@@ -1,12 +1,12 @@
-import Head from 'next/head'
 import {useEffect} from 'react'
+import Head from 'next/head'
+import SignUp from '../components/SignUp'
 import {useSession} from 'next-auth/react'
 import { useRouter } from 'next/router'
-import HomeLayout from '../components/HomeLayout'
 
 
-export default function Home() {
-      const { data: session, status } = useSession()
+export default function Login() { 
+    const { data: session, status } = useSession()
     const router = useRouter();
     
     useEffect(() => {
@@ -23,7 +23,7 @@ export default function Home() {
 
     if (status === 'loading') return <p>...Loading</p>
     
-  if (!session) {
+    if (!session) {
         
         return (
           <>
@@ -32,8 +32,8 @@ export default function Home() {
               <meta name="description" content="Login page" />
               <link rel="icon" href="/favicon.ico" />
             </Head>
-
-            <HomeLayout />
+      
+            <SignUp/>
       
           </>
         )

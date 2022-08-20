@@ -4,6 +4,7 @@ import { ThemeProvider, DefaultTheme } from 'styled-components'
 import Header from '../components/header'
 import GlobalStyle from '../globalstyles'
 
+//you can move this to another file if you want
 const theme: DefaultTheme = {
 
     primary: '#111',
@@ -11,7 +12,7 @@ const theme: DefaultTheme = {
     white: "#fff",
     brightBlue: "#3E64E5",
     silver: "silver",
-    darkGray:"#31343e",
+    darkGrey:"#31343e",
 
 }
 

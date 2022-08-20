@@ -16,7 +16,7 @@ function SignedInHeader({ session }: Props) {
       <NavMenu >
         <a>
           <img src="/images/home-icon.svg" alt="" />
-          <span>Home</span>
+          <span>HOME</span>
         </a>
 
         <a>

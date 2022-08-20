@@ -9,4 +9,15 @@ export default NextAuth({
         }),
         // ...add more providers here
     ],
+
+    //when login to google, the callback allows
+    //
+    callbacks: {
+        async redirect({ url }) {
+            //Allows relative callback URLs
+            if (url.includes('/login')) return '/';
+            if (url.includes('')) return '/login';
+            return url;
+        },
+    },
 });
